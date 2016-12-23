@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SecondActivity extends AppCompatActivity {
-    private List<ShareItem> shareItemList = new ArrayList<>();
+    private List<TestItem> shareItemList = new ArrayList<>();
     private ListView mListView = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +20,15 @@ public class SecondActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.id_list);
 
         for(int i=28;i>0;i--){
-            ShareItem item = new ShareItem();
+            TestItem item = new TestItem();
             item.setId(i);
             shareItemList.add(item);
         }
 
-        mListView.setAdapter(new CommonAdapter<ShareItem>(this, shareItemList,R.layout.test_list_item) {
+        mListView.setAdapter(new CommonAdapter<TestItem>(this, shareItemList,R.layout.test_list_item) {
             @Override
-            public void convert(ViewHolder holder, ShareItem item) {
-               holder.setText(R.id.id_item_text,item.getId()+ "");
+            public void convert(ViewHolder holder, TestItem item) {
+               holder.setText(R.id.id_item_title_text,item.getId()+ "");
             }
         });
     }
